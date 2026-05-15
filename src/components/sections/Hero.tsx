@@ -1,7 +1,7 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
 import { MapPin, Mail, ChevronDown, Code2, Terminal, Cpu } from "lucide-react";
-import GithubIcon from "../common/GithubIcon";
+
 import LinkedinIcon from "../common/LinkedinIcon";
 
 // Typewriter effect hook

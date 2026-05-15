@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import SectionHeading from "../common/SectionHeading";
-import { Trophy, Zap, Shield, Search, Users, Clock } from "lucide-react";
+import { Trophy, Zap, Shield, Search, Clock } from "lucide-react";
 
 type Achievement = {
   icon: React.ElementType;
