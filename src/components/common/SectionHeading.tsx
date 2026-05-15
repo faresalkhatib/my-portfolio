@@ -11,28 +11,32 @@ export default function SectionHeading({
   subtitle,
   align = "left",
 }: Props) {
+  const isCenter = align === "center";
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-100px" }}
       transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-      className={`mb-12 sm:mb-16 ${align === "center" ? "text-center" : ""}`}
+      className={`mb-12 sm:mb-16 ${isCenter ? "text-center" : ""}`}
     >
       <div
-        className={`flex items-center gap-4 mb-4 ${align === "center" ? "justify-center" : ""}`}
+        className={`flex items-center gap-4 mb-4 ${isCenter ? "justify-center" : ""}`}
       >
-        <motion.div
-          initial={{ width: 0 }}
-          whileInView={{ width: 48 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="h-1 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full"
-        />
+        {!isCenter && (
+          <motion.div
+            initial={{ width: 0 }}
+            whileInView={{ width: 48 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="h-1 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full"
+          />
+        )}
         <span className="text-xs font-bold uppercase tracking-[0.3em] text-indigo-400">
           {title}
         </span>
-        {align === "center" && (
+        {isCenter && (
           <motion.div
             initial={{ width: 0 }}
             whileInView={{ width: 48 }}
@@ -55,7 +59,7 @@ export default function SectionHeading({
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.3, duration: 0.5 }}
-          className="text-slate-400 mt-4 max-w-xl text-base sm:text-lg leading-relaxed"
+          className={`text-slate-400 mt-4 max-w-xl text-base sm:text-lg leading-relaxed ${isCenter ? "mx-auto" : ""}`}
         >
           {subtitle}
         </motion.p>
